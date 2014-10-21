@@ -1,21 +1,16 @@
 __author__ = 'zhiyuwang'
-## Simple turtle strategy for ShangHai and ShenZhen 300 stocks.
-## Long and Short.
-## Last update Oct 15th, 2014
-## Added: plot PnL / drawdown curve using matplotlib.pyplot
-## Added: dynamic turtle_size modification based on drawdown
 
 from __future__ import division
 import csv
 from collections import OrderedDict
 from datetime import *
+import math
+
 import matplotlib.pyplot as plt
 from matplotlib.finance import candlestick_ohlc
 from pylab import date2num
-from matplotlib.dates import  DateFormatter, WeekdayLocator, HourLocator, \
-     DayLocator, MONDAY
-import math
-    
+
+
 class backtester():
     def __init__(self, filepaths, init_date = datetime(2009,1,1), end_date = datetime(2014, 9, 30)):
         self.equity = 0
